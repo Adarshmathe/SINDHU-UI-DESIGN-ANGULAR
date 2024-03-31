@@ -45,10 +45,10 @@
           <!-- <td></td>
           <td></td> -->
           <td class="text-center">
-            <p-dropdown [options]='["Acceleration","Velocity"]'  [editable]="true"  [showClear]="true" placeholder="Select value"></p-dropdown>
+            <p-dropdown [options]='["Acceleration","Velocity"]'  [editable]="true"   placeholder="Select value"></p-dropdown>
           </td>
           <td class="text-center">
-            <p-dropdown [options]='["Hz","Orders"]'  [editable]="true"  [showClear]="true" placeholder="Select value"></p-dropdown>
+            <p-dropdown [options]='["Hz","Orders"]'  [editable]="true"   placeholder="Select value"></p-dropdown>
           </td>
           <td >{{product.category}}</td>
           <td >{{product.rating}}</td>
@@ -87,19 +87,29 @@
                           <tr>
                               <td class="text-center">{{order.value.sensor_location}}</td>
                               <td class="text-center">
-                                <p-dropdown [options]='["Automatic","Manual","Caluclated"]'  [editable]="true"  [showClear]="true" placeholder="Select value"></p-dropdown>
+                                <p-dropdown [options]='["Automatic","Manual","Caluclated"]'  [editable]="true"   placeholder="Select value"></p-dropdown>
                               </td>
                               <td class="text-center">
-                                <p-dropdown [options]='["YES","NO"]'  [editable]="true"  [showClear]="true" placeholder="Select value"></p-dropdown>
+                                <p-dropdown [options]='["YES","NO"]'  [editable]="true"   placeholder="Select value"></p-dropdown>
                               </td>
                               <td class="text-center">
-                                <p-dropdown [options]='["YES","NO"]'  [editable]="true"  [showClear]="true" placeholder="Select value"></p-dropdown>
+                                <p-dropdown [options]='["YES","NO"]'  [editable]="true"   placeholder="Select value"></p-dropdown>
                               </td>
-                              <td class="text-center">{{order.value.sensor_location}}</td>
-                              <td class="text-center">{{order.value.sensor_location}}</td>
-                              <td class="text-center">{{order.value.sensor_location}}</td>
-                              <td class="text-center">{{order.value.sensor_location}}</td>
-                              <td class="text-center">{{order.value.sensor_location}}</td>
+                              <td class="text-center">
+                                <p-dropdown [options]='["Default","N/A","Custom"]'  [editable]="true"   placeholder="Select value"></p-dropdown>
+                              </td>
+                              <td class="text-center">
+                                <p-dropdown [options]='["Default","N/A","Custom"]'  [editable]="true"   placeholder="Select value"></p-dropdown>
+                              </td>
+                              <td class="p-inputtext-sm">
+                                <input type="text" style="border: 0px;  height: 40px;" size="13" pInputText [name]="'quantite_'" pKeyFilter="num">
+                              </td>
+                              <td class="p-inputtext-sm">
+                                <input type="text" style="border: 0px;  height: 40px;" size="13" pInputText [name]="'quantite_'" pKeyFilter="num">
+                              </td>
+                              <td class="p-inputtext-sm">
+                                <input type="text" style="border: 0px;  height: 40px;" size="13" pInputText [name]="'quantite_'" pKeyFilter="num">
+                              </td>
                               <td></td>
                           </tr>
                       </ng-template>
@@ -135,13 +145,11 @@
                 : 'pi pi-fw pi-chevron-circle-right'"></i> </a>
           </td>
           <td class="text-center">{{product.name}}</td>
-          <!-- <td></td>
-          <td></td> -->
           <td class="text-center">
-            <p-dropdown [options]='["Acceleration","Velocity"]'  [editable]="true"  [showClear]="true" placeholder="Select value"></p-dropdown>
+            <p-dropdown [options]='["Acceleration","Velocity"]'  [editable]="true"   placeholder="Select value"></p-dropdown>
           </td>
           <td class="text-center">
-            <p-dropdown [options]='["Hz","Orders"]'  [editable]="true"  [showClear]="true" placeholder="Select value"></p-dropdown>
+            <p-dropdown [options]='["Hz","Orders"]'  [editable]="true"   placeholder="Select value"></p-dropdown>
           </td>
           <td >{{product.category}}</td>
           <td >{{product.rating}}</td>
@@ -176,23 +184,32 @@
                               <!-- <th style="width: 4rem"></th> -->
                           </tr>
                       </ng-template>
-                      <ng-template pTemplate="body" let-order>
+                      <ng-template pTemplate="body" let-order let-ind="rowIndex">
                           <tr>
                               <td class="text-center">{{order.value.sensor_location}}</td>
                               <td class="text-center">
-                                <p-dropdown [options]='["Automatic","Manual","Caluclated"]'  [editable]="true"  [showClear]="true" placeholder="Select value"></p-dropdown>
+                                <p-dropdown [options]='["Automatic","Manual","Caluclated"]'  [editable]="true"   placeholder="Select value"></p-dropdown>
                               </td>
                               <td class="text-center">
-                                <p-dropdown [options]='["YES","NO"]'  [editable]="true"  [showClear]="true" placeholder="Select value"></p-dropdown>
+                                <p-dropdown [options]='["YES","NO"]'  [editable]="true"   placeholder="Select value"></p-dropdown>
                               </td>
                               <td class="text-center">
-                                <p-dropdown [options]='["YES","NO"]'  [editable]="true"  [showClear]="true" placeholder="Select value"></p-dropdown>
+                                <p-dropdown [options]='["YES","NO"]'  [editable]="true"   placeholder="Select value"></p-dropdown>
                               </td>
-                              <td class="text-center">{{order.value.sensor_location}}</td>
-                              <td class="text-center">{{order.value.sensor_location}}</td>
-                              <td class="text-center">{{order.value.sensor_location}}</td>
-                              <td class="text-center">{{order.value.sensor_location}}</td>
-                              <td class="text-center">{{order.value.sensor_location}}</td>
+                              <td class="text-center">
+                                <p-dropdown [options]='["Default","N/A","Custom"]'  [editable]="true"   placeholder="Select value"></p-dropdown>
+                              </td>
+                              <td *ngIf="ind!=2" class="text-center">N/A</td>
+                              <td  *ngIf="ind==2"class="p-inputtext-sm">
+                                <input type="text" style="border: 0px;  height: 40px;" size="13" pInputText [name]="'quantite_'" pKeyFilter="num">
+                              </td>
+                              <td class="text-center">N/A</td>
+                              <td class="p-inputtext-sm">
+                                <input type="text" [readOnly]="ind%2==0" style="border: 0px;  height: 40px;" size="13" pInputText [name]="'quantite_'" pKeyFilter="num">
+                              </td>
+                              <td class="p-inputtext-sm">
+                                <input type="text" style="border: 0px;  height: 40px;" size="13" pInputText [name]="'quantite_'" pKeyFilter="num">
+                              </td>
                               <td></td>
                           </tr>
                       </ng-template>
@@ -232,10 +249,10 @@
           </td>
           <td class="text-center">{{product.name}}</td>
           <td class="text-center">
-            <p-dropdown [options]='["Acceleration","Velocity"]'  [editable]="true"  [showClear]="true" placeholder="Select value"></p-dropdown>
+            <p-dropdown [options]='["Acceleration","Velocity"]'  [editable]="true"   placeholder="Select value"></p-dropdown>
           </td>
           <td class="text-center">
-            <p-dropdown [options]='["Hz","Orders"]'  [editable]="true"  [showClear]="true" placeholder="Select value"></p-dropdown>
+            <p-dropdown [options]='["Hz","Orders"]'  [editable]="true"   placeholder="Select value"></p-dropdown>
           </td>
           <td >{{product.category}}</td>
           <td >{{product.rating}}</td>
@@ -275,13 +292,13 @@
                           <tr>
                               <td class="text-center">{{order.value.sensor_location}}</td>
                               <td class="text-center">
-                                <p-dropdown [options]='["Automatic","Manual","Caluclated"]'  [editable]="true"  [showClear]="true" placeholder="Select value"></p-dropdown>
+                                <p-dropdown [options]='["Automatic","Manual","Caluclated"]'  [editable]="true"   placeholder="Select value"></p-dropdown>
                               </td>
                               <td class="text-center">
-                                <p-dropdown [options]='["YES","NO"]'  [editable]="true"  [showClear]="true" placeholder="Select value"></p-dropdown>
+                                <p-dropdown [options]='["YES","NO"]'  [editable]="true"   placeholder="Select value"></p-dropdown>
                               </td>
                               <td class="text-center">
-                                <p-dropdown [options]='["YES","NO"]'  [editable]="true"  [showClear]="true" placeholder="Select value"></p-dropdown>
+                                <p-dropdown [options]='["YES","NO"]'  [editable]="true"   placeholder="Select value"></p-dropdown>
                               </td>
                               <td class="text-center">{{order.value.sensor_location}}</td>
                               <td class="text-center">{{order.value.sensor_location}}</td>
