@@ -1,41 +1,27 @@
-<!-- 
-<table>
-  <tr class="top-date">
-    <th>Training Period Start</th>
-    <td><input type="text" id="start" name="start" readonly></td>
-    <th>Default Alert Multiplier</th>
-    <td><input type="text" id="alert" name="alert" readonly></td>
-  </tr>
-  <tr class="top-date">
-    <th>Training Period End</th>
-    <td><input type="text" id="end" name="end" readonly></td>
-    <th>Default Alarm Multiplier</th>
-    <td><input type="text" id="alarm" name="alarm" readonly></td>
-  </tr>
-</table> -->
+
 <div style="margin-bottom: 20px;">
-  <span>Training Period Start</span>&nbsp;
-<input pInputText pKeyFilter="int" placeholder="Integers" />
-<span style="margin-left: 200px;">Training Period Start</span>&nbsp;
-<input pInputText pKeyFilter="int" placeholder="Integers" />
+  <span>Training Period Start:</span>&nbsp;
+<input pInputText pKeyFilter="int" placeholder="" />
+<span style="margin-left: 200px;">Default Alarm Multiplier: </span>&nbsp;
+<input pInputText pKeyFilter="int" placeholder="" />
 
 <button style="margin-left: 120px; padding: 10px; background-color: green; color: white;font-weight: bold;">Save Changes / Re-Train Alarms</button>
 </div>
 
 <div>
-  <span>Training Period Start</span>&nbsp;
-<input pInputText pKeyFilter="int" placeholder="Integers" />
-<span style="margin-left: 200px;">Training Period Start</span>&nbsp;
-<input pInputText pKeyFilter="int" placeholder="Integers" />
+  <span>Training Period End:</span>&nbsp;
+<input pInputText pKeyFilter="int" placeholder="" />
+<span style="margin-left: 200px;">Default Alert Multiplier:</span>&nbsp;
+<input pInputText pKeyFilter="int" placeholder="" />
 </div>
 
 
-
+<div style="background-color: #f8f9fa; margin-top: 15px; padding: 1rem 1rem; border: 1px solid #dee2e6;"><h2 style="margin: 0 !important;">spectrum based alarms</h2></div>
 <p-table [value]="products.spectrum_thresholds" dataKey="name" styleClass="p-datatable-gridlines"  [tableStyle]="{'width': '100%'}">
   <ng-template pTemplate="header" >
-    <tr>
-      <th colspan="8">spectrum based alarms</th>
-   </tr>
+    <!-- <tr>
+      <th>spectrum based alarms</th>
+   </tr> -->
       <tr>
          <th></th>
           <th class="w50">Name</th>
@@ -125,11 +111,10 @@
 </p-table>
 <button style="margin-bottom: 20px; background-color: blue;  color: white; font-weight: bold;" (click)="onAdd1()">Add New (+)</button>
 
+<div style="background-color: #f8f9fa; margin-top: 15px; padding: 1rem 1rem; border: 1px solid #dee2e6;"><h2 style="margin: 0 !important;">Component based alarms</h2></div>
 <p-table  [value]="products.component_thresholds" dataKey="name" styleClass="p-datatable-gridlines" [tableStyle]="{'width': '100%'}">
   <ng-template pTemplate="header">
-    <tr>
-      <th colspan="8">Component based alarms</th>
-   </tr>
+   
       <tr>
          <th></th>
           <th class="w50">Name</th>
@@ -219,12 +204,10 @@
 </p-table>
 <button style="margin-bottom: 20px; background-color: blue;  color: white; font-weight: bold;" (click)="onAdd2()">Add New (+)</button>
 
+<div style="background-color: #f8f9fa; margin-top: 15px; padding: 1rem 1rem; border: 1px solid #dee2e6;"><h2 style="margin: 0 !important;">Trended Metric Alarms</h2></div>
 <p-table [value]="products.summary_statistics" dataKey="name" styleClass="p-datatable-gridlines" [tableStyle]="{'width': '100%'}">
   <ng-template pTemplate="header">
     
-    <tr>
-      <th colspan="10">Trended Metric Alarms</th>
-    </tr>
       <tr>
          <th></th>
           <th class="w10">Alarm Type</th>
