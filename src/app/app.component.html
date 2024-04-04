@@ -80,32 +80,32 @@
                               <!-- <th style="width: 4rem"></th> -->
                           </tr>
                       </ng-template>
-                      <ng-template pTemplate="body" let-order>
+                      <ng-template pTemplate="body" let-order let-index="rowIndex">
                           <tr>
                               <td class="text-center">{{order.value.sensor_location}}</td>
                               <td class="text-center">
-                                <p-dropdown [options]='["Automatic","Manual","Caluclated"]' [(ngModel)]="order.value.auto_manual_custom"  [editable]="true"   placeholder="Select value"></p-dropdown>
+                                <p-dropdown [options]='["Automatic","Manual","Caluclated"]' (onChange)="OnchangeDropdown(order.key,$event.value)" [editable]="true"   placeholder="Select value"></p-dropdown>
                               </td>
                               <td class="text-center">
-                                <p-dropdown [options]='["YES","NO"]' [(ngModel)]="order.value.enable_alarm"  [editable]="true"   placeholder="Select value"></p-dropdown>
+                                <p-dropdown [options]='["YES","NO"]' [(ngModel)]="order.value.enable_alarm" [disabled]="true"   [editable]="true"   placeholder="Select value"></p-dropdown>
                               </td>
                               <td class="text-center">
-                                <p-dropdown [options]='["YES","NO"]' [(ngModel)]="order.value.enable_alert"  [editable]="true"   placeholder="Select value"></p-dropdown>
+                                <p-dropdown [options]='["YES","NO"]' [(ngModel)]="order.value.enable_alert"  [disabled]="true" [editable]="true"   placeholder="Select value"></p-dropdown>
                               </td>
                               <td class="text-center">
-                                <p-dropdown [options]='["deafult","N/A","Custom"]' [(ngModel)]="order.value.alarm_multiplier_type"  [editable]="true"   placeholder="Select value"></p-dropdown>
+                                <p-dropdown [options]='["deafult","N/A","Custom"]' [(ngModel)]="order.value.alarm_multiplier_type" [disabled]="true"   [editable]="true"   placeholder="Select value"></p-dropdown>
                               </td>
                               <td class="text-center">
-                                <p-dropdown [options]='["Default","N/A","Custom"]'  [editable]="true"   placeholder="Select value"></p-dropdown>
+                                <p-dropdown [options]='["Default","N/A","Custom"]' [(ngModel)]="order.value.alarm_multiplier" [disabled]="true"  [editable]="true"   placeholder="Select value"></p-dropdown>
                               </td>
                               <td class="p-inputtext-sm">
-                                <input type="text" style="border: 0px;  height: 40px;" size="10" pInputText [name]="'quantite_'" pKeyFilter="num">
+                                <input type="text" style="border: 0px;  height: 40px;" size="10" [(ngModel)]="order.value.alert_multiplier" pInputText [name]="'quantite_'" pKeyFilter="num">
                               </td>
                               <td class="p-inputtext-sm">
-                                <input type="text" style="border: 0px;  height: 40px;" size="10" pInputText [name]="'quantite_'" pKeyFilter="num">
+                                <input type="text" style="border: 0px;  height: 40px;" size="10" pInputText  [disabled]="order.value.alarm_value"  [name]="'quantite_'" pKeyFilter="num">
                               </td>
                               <td class="p-inputtext-sm">
-                                <input type="text" style="border: 0px;  height: 40px;" size="10" pInputText [name]="'quantite_'" pKeyFilter="num">
+                                <input type="text" style="border: 0px;  height: 40px;" size="10" pInputText  [disabled]="order.value.alert_value"  [name]="'quantite_'" pKeyFilter="num">
                               </td>
                               <td></td>
                           </tr>

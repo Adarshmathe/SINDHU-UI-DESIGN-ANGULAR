@@ -11,6 +11,7 @@ export class AppComponent {
 
   products:any
   data:any
+    alarmOn: string="";
   constructor() { } 
 
   ngOnInit() { 
@@ -38,39 +39,39 @@ export class AppComponent {
                           "horizontal": {
                               "sensor_location": "Motor DE:Horizontal:1H",
                               "auto_manual_custom": "auto",
-                              "enable_alarm": true,
-                              "enable_alert": true,
-                              "alarm_multiplier_type": "deafult",
-                              "alarm_multiplier": 1.5,
-                              "alert_multiplier": 1.25,
-                              "alarm_value": 1,
-                              "alert_value": 1,
+                              "enable_alarm": "",
+                              "enable_alert": "",
+                              "alarm_multiplier_type": "",
+                              "alarm_multiplier": "",
+                              "alert_multiplier": "",
+                              "alarm_value": "",
+                              "alert_value": "",
                               "calculate_auto_threshold": true,
                               "training_stats": {}
                           },
                           "vertical": {
                               "sensor_location": "Motor DE:Vertical:1V",
                               "auto_manual_custom": "auto",
-                              "enable_alarm": true,
-                              "enable_alert": true,
-                              "alarm_multiplier_type": "deafult",
-                              "alarm_multiplier": 1.5,
-                              "alert_multiplier": 1.25,
-                              "alarm_value": 1,
-                              "alert_value": 1,
+                              "enable_alarm": "",
+                              "enable_alert": "",
+                              "alarm_multiplier_type": "",
+                              "alarm_multiplier": "",
+                              "alert_multiplier": "",
+                              "alarm_value": "",
+                              "alert_value": "",
                               "calculate_auto_threshold": true,
                               "training_stats": {}
                           },
                           "axial": {
                               "sensor_location": "Motor DE:Axial:1A",
                               "auto_manual_custom": "auto",
-                              "enable_alarm": true,
-                              "enable_alert": true,
-                              "alarm_multiplier_type": "deafult",
-                              "alarm_multiplier": 1.5,
-                              "alert_multiplier": 1.25,
-                              "alarm_value": 1,
-                              "alert_value": 1,
+                              "enable_alarm": "",
+                              "enable_alert": "",
+                              "alarm_multiplier_type": "",
+                              "alarm_multiplier": "",
+                              "alert_multiplier": "",
+                              "alarm_value": "",
+                              "alert_value": "",
                               "calculate_auto_threshold": true,
                               "training_stats": {}
                           }
@@ -841,4 +842,45 @@ export class AppComponent {
     this.products.summary_statistics.push(row) ;
    
   }
+
+
+OnchangeDropdown(value:string, selectedval:string){
+
+    switch(selectedval){
+        case "Automatic":{
+            this.products.spectrum_thresholds[0].threshold_info.location_1.axis[value].enable_alarm="Yes"
+            this.products.spectrum_thresholds[0].threshold_info.location_1.axis[value].enable_alert="Yes"
+            this.products.spectrum_thresholds[0].threshold_info.location_1.axis[value].alarm_multiplier_type="N/A"
+            this.products.spectrum_thresholds[0].threshold_info.location_1.axis[value].alarm_multiplier=""
+            this.products.spectrum_thresholds[0].threshold_info.location_1.axis[value].alert_multiplier="N/A"
+            this.products.spectrum_thresholds[0].threshold_info.location_1.axis[value].alarm_value=true
+            this.products.spectrum_thresholds[0].threshold_info.location_1.axis[value].alert_value=true
+        break;
+        }
+        case "Manual":{
+            this.products.spectrum_thresholds[0].threshold_info.location_1.axis[value].enable_alarm="Yes"
+            this.products.spectrum_thresholds[0].threshold_info.location_1.axis[value].enable_alert="Yes"
+            this.products.spectrum_thresholds[0].threshold_info.location_1.axis[value].alarm_multiplier_type="Default"
+            this.products.spectrum_thresholds[0].threshold_info.location_1.axis[value].alarm_multiplier="N/A"
+            this.products.spectrum_thresholds[0].threshold_info.location_1.axis[value].alert_multiplier="N/A"
+            this.products.spectrum_thresholds[0].threshold_info.location_1.axis[value].alarm_value=false
+            this.products.spectrum_thresholds[0].threshold_info.location_1.axis[value].alert_value=false
+            break;
+        }
+        case "Caluclated":{
+            this.products.spectrum_thresholds[0].threshold_info.location_1.axis[value].enable_alarm="Yes"
+            this.products.spectrum_thresholds[0].threshold_info.location_1.axis[value].enable_alert="No"
+            this.products.spectrum_thresholds[0].threshold_info.location_1.axis[value].alarm_multiplier_type="Custom"
+            this.products.spectrum_thresholds[0].threshold_info.location_1.axis[value].alarm_multiplier="N/A"
+            this.products.spectrum_thresholds[0].threshold_info.location_1.axis[value].alert_multiplier="N/A"
+            this.products.spectrum_thresholds[0].threshold_info.location_1.axis[value].alarm_value=true
+            this.products.spectrum_thresholds[0].threshold_info.location_1.axis[value].alert_value=true
+            break;
+        }
+    }
+    
+    
+
+}
+
 } 
