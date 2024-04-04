@@ -84,16 +84,16 @@
                           <tr>
                               <td class="text-center">{{order.value.sensor_location}}</td>
                               <td class="text-center">
-                                <p-dropdown [options]='["Automatic","Manual","Caluclated"]'  [editable]="true"   placeholder="Select value"></p-dropdown>
+                                <p-dropdown [options]='["Automatic","Manual","Caluclated"]' [(ngModel)]="order.value.auto_manual_custom"  [editable]="true"   placeholder="Select value"></p-dropdown>
                               </td>
                               <td class="text-center">
-                                <p-dropdown [options]='["YES","NO"]'  [editable]="true"   placeholder="Select value"></p-dropdown>
+                                <p-dropdown [options]='["YES","NO"]' [(ngModel)]="order.value.enable_alarm"  [editable]="true"   placeholder="Select value"></p-dropdown>
                               </td>
                               <td class="text-center">
-                                <p-dropdown [options]='["YES","NO"]'  [editable]="true"   placeholder="Select value"></p-dropdown>
+                                <p-dropdown [options]='["YES","NO"]' [(ngModel)]="order.value.enable_alert"  [editable]="true"   placeholder="Select value"></p-dropdown>
                               </td>
                               <td class="text-center">
-                                <p-dropdown [options]='["Default","N/A","Custom"]'  [editable]="true"   placeholder="Select value"></p-dropdown>
+                                <p-dropdown [options]='["deafult","N/A","Custom"]' [(ngModel)]="order.value.alarm_multiplier_type"  [editable]="true"   placeholder="Select value"></p-dropdown>
                               </td>
                               <td class="text-center">
                                 <p-dropdown [options]='["Default","N/A","Custom"]'  [editable]="true"   placeholder="Select value"></p-dropdown>
